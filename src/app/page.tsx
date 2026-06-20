@@ -1,14 +1,13 @@
+import db from '../../lib/db';
 import { TodoShell } from '../components/TodoShell';
 
-const dummyTodos = [
-  { id: 1, text: 'Set up Next.js project', done: 1 },
-  { id: 2, text: 'Wire up the SQLite database', done: 0 },
-  { id: 3, text: 'Build the API routes', done: 0 },
-  { id: 4, text: 'Learn what CRUD means', done: 1 },
-  { id: 5, text: 'Understand SQL vs NoSQL', done: 0 },
-];
-
 export default function Home() {
+  const todos = db.prepare('SELECT * FROM todos ORDER BY created_at ASC').all() as {
+    id: number;
+    text: string;
+    done: number;
+  }[];
+
   return (
     <main className="min-h-screen bg-[#f7f6f3] py-12">
       <div className="max-w-xl mx-auto px-6">
@@ -22,7 +21,7 @@ export default function Home() {
             })}
           </p>
         </div>
-        <TodoShell initialTodos={dummyTodos} />
+        <TodoShell initialTodos={todos} />
       </div>
     </main>
   );

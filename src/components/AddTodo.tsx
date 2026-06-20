@@ -9,9 +9,15 @@ interface Props {
 export function AddTodo({ onAdd }: Props) {
   const [text, setText] = useState('');
 
-  function handleAdd() {
+  async function handleAdd() {
     if (!text.trim()) return;
-    onAdd({ id: Date.now(), text: text.trim(), done: 0 });
+    const res = await fetch('/api/todos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text.trim() }),
+    });
+    const todo = await res.json();
+    onAdd(todo);
     setText('');
   }
 

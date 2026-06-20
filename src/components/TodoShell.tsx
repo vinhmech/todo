@@ -30,11 +30,17 @@ export function TodoShell({ initialTodos }: Props) {
     setTodos((prev) => [...prev, todo]);
   }
 
-  function handleToggle(updated: Todo) {
+  async function handleToggle(updated: Todo) {
+    await fetch(`/api/todos/${updated.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ done: updated.done }),
+    });
     setTodos((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
   }
 
-  function handleDelete(id: number) {
+  async function handleDelete(id: number) {
+    await fetch(`/api/todos/${id}`, { method: 'DELETE' });
     setTodos((prev) => prev.filter((t) => t.id !== id));
   }
 
