@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple: #534ab7;
+  --purple-light: #eeedfe;
+  --purple-dark: #3c3489;
+  --teal: #1d9e75;
+  --danger: #d85a30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Add input ── */
+.add-input {
+  flex: 1;
+  padding: 9px 13px;
+  font-size: 14px;
+  border: 1px solid #d3d1c7;
+  border-radius: 8px;
+  background: white;
+  color: #1a1a18;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.add-input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.12);
+}
+
+/* ── Add button ── */
+.add-btn {
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--purple);
+  color: var(--purple-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  background: var(--purple-dark);
+}
+
+.add-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Filter pills ── */
+.filter-btn {
+  padding: 5px 14px;
+  font-size: 13px;
+  border: 0.5px solid #d3d1c7;
+  border-radius: 100px;
+  background: transparent;
+  color: #888780;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filter-btn.active {
+  background: var(--purple-light);
+  border-color: #afa9ec;
+  color: var(--purple-dark);
+  font-weight: 500;
+}
+
+/* ── Stat cards ── */
+.stat-card {
+  background: #eeece7;
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.stat-card .stat-number {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a18;
+}
+
+.stat-card .stat-label {
+  font-size: 11px;
+  color: #888780;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Todo item ── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  background: white;
+  border: 0.5px solid #e4e2db;
+  border-radius: 8px;
+  transition: border-color 0.15s;
+}
+
+.todo-item:hover {
+  border-color: #c8c6bf;
+}
+
+.todo-item.done {
+  opacity: 0.5;
+}
+
+/* ── Checkbox ── */
+.check-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #d3d1c7;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.check-btn.checked {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+
+/* ── Icon buttons ── */
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #b4b2a9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, color 0.1s;
+}
+
+.icon-btn:hover {
+  background: #f1efe8;
+  color: #1a1a18;
+}
+
+.icon-btn.danger:hover {
+  color: var(--danger);
+}
+
+/* ── Edit input ── */
+.edit-input {
+  flex: 1;
+  font-size: 14px;
+  padding: 3px 8px;
+  border: 1px solid var(--purple);
+  border-radius: 6px;
+  background: white;
+  color: #1a1a18;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.12);
+}
